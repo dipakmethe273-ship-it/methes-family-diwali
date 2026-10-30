@@ -1,0 +1,560 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: Georgia, serif;
+    color: #fff2d0;
+    text-align: center;
+    background:
+        radial-gradient(ellipse at 50% 40%, #76251d 0%, transparent 55%),
+        linear-gradient(135deg, #100404, #3c090b, #170505);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.45;
+    background-image:
+        radial-gradient(circle, #ffd66b 1px, transparent 2px),
+        radial-gradient(circle, #ff9c37 1px, transparent 2px);
+    background-size: 75px 75px, 115px 115px;
+    animation: sparkle 8s linear infinite;
+}
+
+.hero {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 35px 20px;
+}
+
+.diya {
+    font-size: 90px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 20px #ff9d00);
+    animation: diyaGlow 1.5s ease-in-out infinite alternate;
+}
+
+h1 {
+    color: #ffdc83;
+    font-size: clamp(38px, 7vw, 76px);
+    letter-spacing: 4px;
+    text-shadow:
+        0 0 10px #ffb52e,
+        0 0 25px #ff8c00,
+        0 0 50px #ff6a00;
+    animation: titleGlow 2s infinite alternate;
+}
+
+h2 {
+    color: #fff0bd;
+    font-size: clamp(22px, 4vw, 36px);
+    margin: 22px 0;
+    letter-spacing: 2px;
+}
+
+p {
+    font-size: clamp(16px, 2vw, 22px);
+    line-height: 1.8;
+    margin: 5px 0;
+}
+
+.hero::after {
+    content: "✦  ✧  ✦  ✧  ✦";
+    color: #ffd46b;
+    font-size: 25px;
+    letter-spacing: 15px;
+    margin-top: 35px;
+    text-shadow: 0 0 15px gold;
+    animation: sparkle 3s infinite alternate;
+}
+
+@keyframes diyaGlow {
+    from {
+        transform: scale(1);
+        filter: drop-shadow(0 0 10px orange);
+    }
+    to {
+        transform: scale(1.12);
+        filter: drop-shadow(0 0 35px gold);
+    }
+}
+
+@keyframes titleGlow {
+    from { text-shadow: 0 0 10px orange; }
+    to { text-shadow: 0 0 35px gold, 0 0 65px orange; }
+}
+
+@keyframes sparkle {
+    from { background-position: 0 0, 0 0; }
+    to { background-position: 75px 150px, -115px 115px; }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        letter-spacing: 1px;
+    }
+
+    .diya {
+        font-size: 70px;
+    }
+}
+
+.music-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 35px;
+    position: relative;
+    z-index: 10;
+}
+
+.music-controls button {
+    padding: 16px 28px;
+    border: 1px solid #ffe29a;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #ffe6a0, #d99a27, #9d5c0b);
+    color: #351005;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow:
+        0 0 15px #ffbb36,
+        0 0 35px #ff9d2444,
+        inset 0 2px 5px #fff4c7;
+    transition: 0.3s ease;
+}
+
+.music-controls button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow:
+        0 0 25px gold,
+        0 0 50px #ff9d24;
+}
+
+.music-controls button:active {
+    transform: scale(0.96);
+}
+
+@media (max-width: 600px) {
+    .music-controls {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .music-controls button {
+        width: min(100%, 300px);
+    }
+}
+
+/* PREMIUM DIWALI WELCOME SCREEN */
+
+.welcome-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    text-align: center;
+    background:
+        radial-gradient(circle at center, #762d19, transparent 65%),
+        linear-gradient(135deg, #160404, #450b0b, #160404);
+    border: 8px double #dcae4e;
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+.welcome-diya {
+    font-size: 85px;
+    filter: drop-shadow(0 0 25px orange);
+    animation: diyaGlow 1.5s infinite alternate;
+}
+
+.welcome-small {
+    color: #ffe3a1;
+    letter-spacing: 5px;
+    margin: 15px 0;
+    font-size: 13px;
+}
+
+.welcome-screen h1 {
+    font-size: clamp(55px, 9vw, 95px);
+    color: #ffdc83;
+    margin: 10px;
+}
+
+.welcome-screen h2 {
+    color: #fff0c2;
+    margin: 15px 0;
+    font-size: 30px;
+}
+
+.gold-line {
+    width: 180px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, gold, transparent);
+    margin: 15px;
+    box-shadow: 0 0 15px gold;
+}
+
+.welcome-screen h3 {
+    color: #ffcf65;
+    letter-spacing: 4px;
+    margin: 15px;
+}
+
+#openInvitation {
+    margin-top: 30px;
+    padding: 17px 30px;
+    border: 1px solid #fff0b0;
+    border-radius: 50px;
+    color: #381005;
+    background: linear-gradient(135deg, #fff0b0, #e4a72c, #bd7412);
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 25px #ffbd43;
+    animation: buttonPulse 2s infinite;
+    transition: transform 0.3s;
+}
+
+#openInvitation:hover {
+    transform: scale(1.08);
+}
+
+.welcome-footer {
+    color: #ffdda0;
+    margin-top: 35px;
+    letter-spacing: 2px;
+}
+
+.welcome-screen.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+@keyframes buttonPulse {
+    0%, 100% { box-shadow: 0 0 15px #ffbd43; }
+    50% { box-shadow: 0 0 35px gold; }
+}
+
+/* ROYAL DIWALI GALLERY */
+
+.gallery {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    align-self: stretch;
+    padding: 65px 20px;
+    text-align: center;
+    background: linear-gradient(
+        180deg,
+        #270707,
+        #49100c,
+        #210606
+    );
+}
+
+.gallery > h2 {
+    color: #ffda83;
+    font-size: clamp(27px, 5vw, 42px);
+    text-shadow: 0 0 20px orange;
+}
+
+.gallery > p {
+    color: #ffe8bb;
+    margin-bottom: 35px;
+}
+
+.gallery-grid {
+    max-width: 1050px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.gallery-card {
+    min-height: 230px;
+    padding: 35px 15px;
+    border: 1px solid #e5b75c;
+    border-radius: 22px;
+    background: linear-gradient(
+        145deg,
+        #69251d99,
+        #260808dd
+    );
+    box-shadow: 0 0 20px #ffb52e22;
+    transition: transform 0.4s, box-shadow 0.4s;
+    cursor: pointer;
+}
+
+.gallery-card:hover {
+    transform: translateY(-10px) scale(1.035);
+    box-shadow:
+        0 0 20px #ffcb59,
+        0 0 45px #ff9d3544;
+}
+
+.gallery-card span {
+    display: block;
+    font-size: 65px;
+    margin-bottom: 20px;
+    animation: diyaGlow 2s infinite alternate;
+}
+
+.gallery-card h3 {
+    color: #ffdc83;
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.gallery-card p {
+    color: #ffe7bd;
+    font-size: 16px;
+}
+
+@media (max-width: 600px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-card {
+        min-height: 190px;
+    }
+}
+
+/* FLOATING DIWALI DECORATIONS */
+
+.floating-diyas {
+    position: fixed;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.floating-diyas span {
+    position: absolute;
+    bottom: -80px;
+    font-size: 35px;
+    opacity: 0;
+    animation: floatDiya 12s linear infinite;
+    filter: drop-shadow(0 0 15px orange);
+}
+
+.floating-diyas span:nth-child(1) {
+    left: 8%;
+    animation-delay: 0s;
+}
+
+.floating-diyas span:nth-child(2) {
+    left: 28%;
+    animation-delay: 3s;
+    font-size: 25px;
+}
+
+.floating-diyas span:nth-child(3) {
+    left: 55%;
+    animation-delay: 6s;
+}
+
+.floating-diyas span:nth-child(4) {
+    left: 76%;
+    animation-delay: 2s;
+}
+
+.floating-diyas span:nth-child(5) {
+    left: 92%;
+    animation-delay: 8s;
+}
+
+@keyframes floatDiya {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    15% {
+        opacity: 0.8;
+    }
+    85% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(25deg);
+        opacity: 0;
+    }
+}
+
+/* ROYAL ROTATING RANGOLI */
+
+.rangoli-section {
+    position: relative;
+    z-index: 2;
+    padding: 65px 20px;
+    text-align: center;
+    background: radial-gradient(circle, #542016, #210606);
+}
+
+.rangoli-section h2 {
+    color: #ffda83;
+    font-size: clamp(28px, 5vw, 42px);
+    text-shadow: 0 0 20px gold;
+}
+
+.rangoli {
+    position: relative;
+    width: 230px;
+    height: 230px;
+    margin: 35px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 3px solid #ffd46b;
+    background: repeating-conic-gradient(
+        #ffcf50 0deg 10deg,
+        #9c2455 10deg 20deg,
+        #3b1674 20deg 30deg,
+        #e58c25 30deg 40deg
+    );
+    box-shadow: 0 0 25px gold, 0 0 55px #ff8c00;
+    animation: rangoliRotate 18s linear infinite;
+}
+
+.rangoli::before {
+    content: "";
+    position: absolute;
+    inset: 20px;
+    border: 4px dotted #fff0ae;
+    border-radius: 50%;
+}
+
+.rangoli-center {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 38px;
+    background: #ffe5a0;
+    box-shadow: 0 0 25px gold;
+    z-index: 2;
+    animation: rangoliRotate 18s linear infinite reverse;
+}
+
+.rangoli-petals {
+    position: absolute;
+    inset: 0;
+    animation: rangoliRotate 18s linear infinite reverse;
+}
+
+.rangoli-petals span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    color: #fff1a8;
+    font-size: 35px;
+    text-shadow: 0 0 12px gold;
+}
+
+.rangoli-petals span:nth-child(1) { transform: translate(-50%, -50%) translateY(-90px); }
+.rangoli-petals span:nth-child(2) { transform: translate(-50%, -50%) rotate(45deg) translateY(-90px); }
+.rangoli-petals span:nth-child(3) { transform: translate(-50%, -50%) rotate(90deg) translateY(-90px); }
+.rangoli-petals span:nth-child(4) { transform: translate(-50%, -50%) rotate(135deg) translateY(-90px); }
+.rangoli-petals span:nth-child(5) { transform: translate(-50%, -50%) rotate(180deg) translateY(-90px); }
+.rangoli-petals span:nth-child(6) { transform: translate(-50%, -50%) rotate(225deg) translateY(-90px); }
+.rangoli-petals span:nth-child(7) { transform: translate(-50%, -50%) rotate(270deg) translateY(-90px); }
+.rangoli-petals span:nth-child(8) { transform: translate(-50%, -50%) rotate(315deg) translateY(-90px); }
+
+.rangoli-section > p {
+    color: #ffe6b0;
+    margin-top: 20px;
+}
+
+@keyframes rangoliRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* WHATSAPP SHARING SECTION */
+
+.share-section {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 65px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #260606, #54140d, #210606);
+    border-top: 1px solid #dba947;
+}
+
+.share-section h2 {
+    color: #ffdc83;
+    font-size: clamp(28px, 5vw, 42px);
+    text-shadow: 0 0 20px gold;
+}
+
+.share-section > p {
+    color: #ffe9bd;
+    margin: 18px auto;
+}
+
+#visitorName {
+    display: block;
+    width: min(100%, 350px);
+    margin: 25px auto;
+    padding: 16px 20px;
+    border: 1px solid #e5bd65;
+    border-radius: 35px;
+    outline: none;
+    color: white;
+    background: #310d0d;
+    font-size: 16px;
+    text-align: center;
+}
+
+#visitorName::placeholder {
+    color: #e9c98c;
+}
+
+#whatsappShare {
+    padding: 17px 28px;
+    border: 1px solid #fff0b0;
+    border-radius: 40px;
+    background: linear-gradient(135deg, #b9ffb9, #25d366, #128c45);
+    color: #062b14;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 20px #25d36688;
+    transition: 0.3s;
+}
+
+#whatsappShare:hover {
+    transform: translateY(-5px) scale(1.04);
+    box-shadow: 0 0 35px #25d366;
+}
+
+.share-note {
+    font-size: 14px;
+    letter-spacing: 1px;
+}
